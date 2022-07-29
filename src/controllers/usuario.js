@@ -18,7 +18,7 @@ const config={
     //ssl:{rejectUnauthorized:false}
   };
     
-    const pool = new Pool(config); 
+ const pool = new Pool(config); 
 
 
 
@@ -53,14 +53,6 @@ usuario.verificar= async (req,res)=>{
 
 
 }
-
-
-
-
-
-
-
-
 
 usuario.register= (req,res)=>{
  try{
