@@ -2,6 +2,7 @@ const express= require('express')
 const router = express.Router()
 const usuario = require('../controllers/usuario')
 const room= require('../controllers/room')
+const puntaje=require('../controllers/puntaje')
 const passport=require('passport')
 const { passportAuth } = require('../middlewares')
 
@@ -22,13 +23,13 @@ router.post('/verificacion',usuario.verificar)
 //rutas room
 router.post('/crear-room',room.crear)
 router.put('/modificar-room',room.modificar)
-router.get('/buscar-room',room.buscaridroom)
+router.post('/buscar-room',room.buscaridroom)
 router.get('/rooms',room.leerroom)
 router.delete('/borrar-sala',room.borrarsala)
 
 //rutas puntaje
-router.get('/buscar-puntaje/:id_usuario',)
-router.post('/crear-puntaje',)
+router.get('/buscar-puntaje/:id_usuario',puntaje.crear)
+router.post('/crear-puntaje',puntaje.buscar)
 
 
 

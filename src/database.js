@@ -58,7 +58,7 @@ const buscarnombreusuario= async(req,res)=>{
 //crear room
 const crearroom= async(req,res)=>{
     const {id_room,rondas,tiempo,autor}=req.body
-    const result= await pool.query('INSERT INTO usuario(id_room,rondas,tiempo,autor) VALUES($1,$2,$3,$4)', [
+    const result= await pool.query('INSERT INTO room(id_room,rondas,tiempo,autor) VALUES($1,$2,$3,$4)', [
         id_room,rondas,tiempo,autor ])
      console.log(result)
     res.json(result.rows)
@@ -73,7 +73,7 @@ const leerroom=async(req,res)=>{
 
 //buscar room por id_room
 const buscarroom=async(req,res)=>{
-    const id_room=req.body
+    const {id_room}=req.body
     const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
     console.log(response)
     res.json(response.rows)
@@ -93,7 +93,7 @@ const modificarsala=async(req,res)=>{
 
 //borrar sala 
 const borrarsala=async(req,res)=>{
-    const id_room= req.body
+    const {id_room}= req.body
     const result=await pool.query('DELETE FROM room where id_room=$1',[
         id_room
     ])

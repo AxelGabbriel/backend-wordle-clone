@@ -19,7 +19,7 @@ room.modificar=(req,res)=>{
 
 room.buscaridroom=(req,res)=>{
     try {
-        bd.buscarroom=(req,res)
+        bd.buscarroom(req,res)
     } catch (e) {
         console.log(e)
     }
