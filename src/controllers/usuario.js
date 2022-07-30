@@ -11,11 +11,11 @@ const {sendEmail,getTemplate}= require('../email.config')
 const usuario = {}
 const config={
   
-    user:'postgres',
-    host:'localhost',
-    password:'axel',
-    database:'wordle',
-    //ssl:{rejectUnauthorized:false}
+   connectionString: process.env.DATABASE_URL,
+  max:500,
+  min:100,
+  ssl:{rejectUnauthorized:false}
+    
   };
     
  const pool = new Pool(config); 
