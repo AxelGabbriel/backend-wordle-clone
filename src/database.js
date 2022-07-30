@@ -58,7 +58,7 @@ const buscarnombreusuario= async(req,res)=>{
 //crear room
 const crearroom= async(req,res)=>{
     const {id_room,rondas,autor}=req.body
-    const result= await pool.query('INSERT INTO room(id_room,rondas,autor) VALUES($1,$2,$3,$4)', [
+    const result= await pool.query('INSERT INTO room(id_room,rondas,autor) VALUES($1,$2,$3)', [
         id_room,rondas,autor ])
      console.log(result)
     res.json(result.rows)
