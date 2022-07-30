@@ -6,6 +6,8 @@ const app = express()
 const {Strategy} =require('passport-local')
 const { LocalStrategy } = require('./strategies')
 
+const Socketio= require('socket.io')
+
 //middlewares
 app.use(session({
     secret:'xd',
@@ -29,13 +31,24 @@ app.use(passport.initialize())
 app.use(passport.session());
 //router
 app.use(require('./routes/router'));
+
+
 //const port =process.env.PORT || 5000;
-app.listen(8000, ()=>{
-    console.log('servidor activo en puerto 8000')
+
+//servidor activo
+const server=app.listen(8000, ()=>{
+  console.log('servidor activo en puerto 8000')
 })
 
 
 
+//config de sockets
+const io=Socketio(server)
+
+//sockets
+io.on('connection',()=>{
+  console.log('un usuario se ha conectado')
+})
 
 
 

@@ -73,7 +73,7 @@ const leerroom=async(req,res)=>{
 
 //buscar room por id_room
 const buscarroom=async(req,res)=>{
-    const {id_room}=req.body
+    const id_room=req.params.id_room
     const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
     console.log(response)
     res.json(response.rows)

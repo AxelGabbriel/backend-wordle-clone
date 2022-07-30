@@ -23,7 +23,7 @@ router.post('/verificacion',usuario.verificar)
 //rutas room
 router.post('/crear-room',room.crear)
 router.put('/modificar-room',room.modificar)
-router.post('/buscar-room',room.buscaridroom)
+router.post('/buscar-room/:id_room',room.buscaridroom)
 router.get('/rooms',room.leerroom)
 router.delete('/borrar-sala',room.borrarsala)
 
