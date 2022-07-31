@@ -7,7 +7,7 @@ const passport=require('passport')
 const { passportAuth } = require('../middlewares')
 
 //rutas usuario
-router.put( '/modificar-usuario',usuario.modificar)
+router.put( '/modificar-usuario/:id_usuario',usuario.modificar)
 router.get('/buscar-usuario/:id_usuario',usuario.buscarid)
 router.get('/buscar-nombre/:nombre',usuario.buscarnombreusuario)
 

@@ -75,8 +75,9 @@ const leerroom=async(req,res)=>{
 const buscarroom=async(req,res)=>{
     const id_room=req.params.id_room
     const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
-    console.log(response)
-    res.json(response.rows)
+    const codigo= response.rows[0]
+    res.json(codigo.id_room)
+
 }
 
 //modificar sala 
