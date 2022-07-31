@@ -72,11 +72,28 @@ const leerroom=async(req,res)=>{
 }
 
 //buscar room por id_room
-const buscarroom=async(req,res)=>{
+const buscarroomid=async(req,res)=>{
     const id_room=req.params.id_room
     const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
     const codigo= response.rows[0]
     res.json(codigo.id_room)
+
+}
+
+//buscar room por autor
+const buscarroomautor=async(req,res)=>{
+    const id_room=req.params.id_room
+    const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
+    const codigo= response.rows[0]
+    res.json(codigo.autor)
+
+}
+//buscar room por rondas
+const buscarroomrondas=async(req,res)=>{
+    const id_room=req.params.id_room
+    const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
+    const codigo= response.rows[0]
+    res.json(codigo.rondas)
 
 }
 
@@ -123,11 +140,13 @@ const {id_usuario,id_sala,puntos}=req.body
 
    }
 module.exports={
-   borrarsala,
+   buscarroomautor,
+   buscarroomrondas,
+    borrarsala,
     buscarpuntos,
     crearpuntos,
     modificarsala,
-    buscarroom,
+    buscarroomid,
     leerroom,
     modificarusuario,
     crearusuario,

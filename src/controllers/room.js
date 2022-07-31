@@ -19,11 +19,33 @@ room.modificar=(req,res)=>{
 
 room.buscaridroom=(req,res)=>{
     try {
-        bd.buscarroom(req,res)
+        bd.buscarroomid(req,res)
     } catch (e) {
         console.log(e)
     }
 }
+
+
+room.buscarautor=(req,res)=>{
+    try {
+        bd.buscarroomautor(req,res)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+room.buscarrondas=(req,res)=>{
+    try {
+        bd.buscarroomrondas(req,res)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
+
+
+
 
 room.leerroom=(req,res)=>{
 try {
