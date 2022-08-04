@@ -19,14 +19,14 @@ const  {
      contraseña,
      verificarlave
       }= req.body;
-
-      if(verificarlave===contraseña){
+      const confirmar=verificarlave
+      if(confirmar===contraseña){
 
         const passwordencriptado= await helpers.encryptPassword(contraseña);
         const result= await pool.query('INSERT INTO usuario(username,correo,nombre,contraseña) VALUES($1,$2,$3,$4)', [
-       username,correo,nombre,passwordencriptado ])
-    console.log(result)
-   res.json(result.rows)
+         username,correo,nombre,passwordencriptado ])
+         console.log(result)
+         res.json(result.rows)
 
       }else{
         res.json('contraseñas incompatibles')
