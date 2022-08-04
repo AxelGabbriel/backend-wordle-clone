@@ -38,10 +38,7 @@ const config={
          if(validpassword){
           
           done(null,newuser,console.log('bienvenido'))
-          user.id=newuser.id_usuario
-          passport.serializeUser((user,done)=>{
-            done(null,user.id)
-          })
+          
 
 
          }else{
@@ -62,10 +59,7 @@ const config={
 
 
 
-passport.deserializeUser( async (id_usuario,done)=>{
-    const rows = await pool.query('SELECT * FROM usuario WHERE id_usuario=?',[id_usuario])
-    done(null,rows[0])
-})
+
 
 module.exports={
   LocalStrategy
