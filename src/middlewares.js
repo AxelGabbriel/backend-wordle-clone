@@ -8,7 +8,7 @@ const passportAuth = (req, res, next) => {
     if (!user) {
       return res.status(401).send({
         err: info,
-        msg:'usuario no existe'
+        
       });
     }
     req.logIn(user, function (err) {
