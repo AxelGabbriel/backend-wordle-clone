@@ -33,12 +33,12 @@ app.use(passport.session());
 app.use(require('./routes/router'));
 
 
-//const port =process.env.PORT || 5000;
+
 
 //servidor activo
-const port =process.env.PORT || 5000;
+const port =process.env.PORT || 8000;
 const server=app.listen(port, ()=>{
-    console.log('servidor activo en puerto 5000')
+    console.log('servidor activo en puerto 8000')
 })
 
 
