@@ -19,7 +19,7 @@ const config={
     usernameField: 'username',
     passwordField: 'password',
   },
-  async (username, password, res,req) => {
+  async (username, password, done) => {
     try {
       
       const user={
@@ -33,12 +33,12 @@ const config={
         
          if(validpassword){
             console.log('bienvenido')
-           res.json('bienvenido')
+           
          
 
 
          }else{
-              done(null,false,res.json('password incorrecto'))
+             
               
          }
       }else{
