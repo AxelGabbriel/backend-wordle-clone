@@ -8,7 +8,7 @@ const passportAuth = (req, res, next) => {
     }
     if (!user) {
       return res.json(
-        'login fail'
+        '0'
       );
     }
     req.logIn(user, function (err) {
@@ -20,8 +20,8 @@ const passportAuth = (req, res, next) => {
         });
       }
       res.json(
-        'Login successful!'
-        //sucessRedirect:'/perfil'
+        '1'
+        
       );
     });
   })(req, res, next);
