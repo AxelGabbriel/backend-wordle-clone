@@ -38,7 +38,10 @@ const config={
          if(validpassword){
           
           done(null,newuser,console.log('bienvenido'))
-          
+          user.id=newuser.id_usuario
+          passport.serializeUser((user,done)=>{
+            done(null,user.id)
+          })
 
 
          }else{
