@@ -29,7 +29,7 @@ const  {
       res.json(result.rows)
 
       }else{
-        res.json('mamate un guebo')
+        res.json('contraseñas no compatibles')
       }
       
 
