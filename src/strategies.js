@@ -33,7 +33,8 @@ const config={
         
          if(validpassword){
           
-          done(null,newuser,console.log('bienvenido'))
+          done(null,newuser,
+            res.json('bienvenido'))
           user.id=newuser.id_usuario
           passport.serializeUser((user,done)=>{
             done(null,user.id)
@@ -41,11 +42,11 @@ const config={
 
 
          }else{
-              done(null,false,console.log('password incorrecto'))
+              done(null,false,res.json('password incorrecto'))
               
          }
       }else{
-        return done(null, false,console.log('el usuario no existe'))   
+        return done(null, false,res.json('el usuario no existe'))   
         
       }
       

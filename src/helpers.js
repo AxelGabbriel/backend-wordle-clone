@@ -9,7 +9,8 @@ helpers.encryptPassword= async (password)=>{
 
 helpers.compararclave= async(password,savepassword)=>{
     try {
-        return await bcrypt.compare(password,savepassword)
+        const valido = await bcrypt.compare(password,savepassword)
+        return valido;
     } catch (e) {
         console.log(e)
     }
