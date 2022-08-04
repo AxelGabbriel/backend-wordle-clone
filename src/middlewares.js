@@ -1,17 +1,16 @@
 const passport= require('passport');
 
 const passportAuth = (req, res, next) => {
-  passport.authenticate('local', (err, newuser, info) => {
+  passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
     }
-    if (!newuser) {
+    if (!user) {
       return res.status(401).send({
         err: info,
-        
       });
     }
-    req.logIn(newuser, function (err) {
+    req.logIn(user, function (err) {
       if (err) {
         console.log(err)
         return res.status(500).send({

@@ -9,7 +9,11 @@ const config={
   max:500,
   min:100,
   ssl:{rejectUnauthorized:false}
-  
+  //user:'tfkzbfkhvyyogq',
+  //host:'lec2-54-87-179-4.compute-1.amazonaws.com',
+  //password:'516addb3081867d7455ecdee1b474eac4c7c8bed7f5a140523f445cff164eff9',
+  //database:'d88nc35tlkcnon',
+  //ssl:{rejectUnauthorized:false}
 };
   
   const pool = new Pool(config); 
@@ -29,16 +33,16 @@ const config={
       const result= await pool.query('SELECT* FROM usuario WHERE username=$1',[user.username])
       if(result.rows.length>0){
          const newuser =result.rows[0];
-         const validpassword= await helpers.compararclave(user.clave,newuser.contraseña) 
+         const validpassword= await helpers.compararclave(user.clave,newuser.clave) 
         
          if(validpassword){
-            console.log('bienvenido')
-           
-         
+          
+          done(null,newuser,console.log('bienvenido'))
+          
 
 
          }else{
-             
+              done(null,false,console.log('password incorrecto'))
               
          }
       }else{
