@@ -4,7 +4,7 @@ const usuario = require('../controllers/usuario')
 const room= require('../controllers/room')
 const puntaje=require('../controllers/puntaje')
 const passport=require('passport')
-const  passportAuth  = require('../middlewares')
+const  {passportAuth}  = require('../middlewares')
 
 //rutas usuario
 router.put( '/modificar-usuario/:id_usuario',usuario.modificar)
@@ -13,7 +13,7 @@ router.get('/buscar-nombre/:nombre',usuario.buscarnombreusuario)
 
 //registro y login
 router.post('/registro',usuario.register)
-router.post('/login', passportAuth.passportAuth)
+router.post('/login', passportAuth)
 router.get('/perfil',(req,res)=>{
     res.send('perfil')
 })
