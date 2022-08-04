@@ -21,8 +21,8 @@ const  {
       }= req.body;
      const passwordencriptado = await helpers.encryptPassword(contraseña)
      const verificar = await helpers.encryptPassword(verificarlave)
-     const seguir= await helpers.compararclave(passwordencriptado,verificar)
-      if(seguir){
+     //const seguir= await helpers.compararclave(passwordencriptado,verificar)
+      if(passwordencriptado===verificar){
         const result= await pool.query('INSERT INTO usuario(username,correo,nombre,contraseña) VALUES($1,$2,$3,$4)', [
          username,correo,nombre,passwordencriptado ])
          console.log(result)
