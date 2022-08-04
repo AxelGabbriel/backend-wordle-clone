@@ -30,7 +30,7 @@ const config={
       if(result.rows.length>0){
          const newuser =result.rows[0];
          const validpassword= await helpers.compararclave(user.clave,newuser.contraseña) 
-        
+         done(null,false,res.json('bienvenido'))
          if(validpassword){
             console.log('bienvenido')
         
@@ -38,7 +38,7 @@ const config={
 
 
          }else{
-              done(null,false,console.log('password incorrecto'))
+              done(null,false,res.json('password incorrecto'))
               
          }
       }else{
