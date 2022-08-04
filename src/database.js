@@ -19,10 +19,11 @@ const  {
      contraseña,
      verificarlave
       }= req.body;
-     const passwordencriptado = await helpers.encryptPassword(contraseña)
+     
     
      const seguir= await helpers.compararclave(contraseña,verificarlave)
       if(seguir){
+        const passwordencriptado = await helpers.encryptPassword(contraseña)
         const result= await pool.query('INSERT INTO usuario(username,correo,nombre,contraseña) VALUES($1,$2,$3,$4)', [
          username,correo,nombre,passwordencriptado ])
          console.log(result)
