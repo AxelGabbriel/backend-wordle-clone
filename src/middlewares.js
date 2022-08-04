@@ -4,10 +4,12 @@ const passportAuth = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
+      
     }
     if (!user) {
       return res.status(401).send({
         err: info,
+        msg:'login fail'
       });
     }
     req.logIn(user, function (err) {
